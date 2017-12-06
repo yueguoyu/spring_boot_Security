@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>select</title>
+</head>
+<body>
+<div>
+    <form id="login-form2" th:action="@{/selectByName}" th:object="${SysUser}" method="post">
+        <table>
+            <tr>
+                <td> <label>name:</label></td>
+                <td><input type="text" value="name" th:field="*{username}"></input></td>
+            </tr>
+        </table>
+        <input type="submit" value="go"/>
+    </form>
+</div>
+</body>
+</html>

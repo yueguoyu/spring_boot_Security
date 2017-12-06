@@ -13,9 +13,11 @@ import java.util.List;
 
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
     @Autowired
+//    SysuserRepository repository;
     UserDao dao;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+       // Sysuser user=repository.findByUsername(username);
         Sysuser user=dao.findByUserName(username);
         if (user==null){
             throw new UsernameNotFoundException("用户名不存在");
@@ -26,6 +28,6 @@ public class UserDetailsService implements org.springframework.security.core.use
             authorities.add(new SimpleGrantedAuthority(sysrole.getName()));
             System.out.println(sysrole.getName());
         }
-        return new User(user.getUsername(),user.getPassword(),authorities);
+        return  user;
     }
 }
