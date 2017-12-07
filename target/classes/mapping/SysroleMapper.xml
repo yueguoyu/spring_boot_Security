@@ -236,4 +236,7 @@
     set name = #{name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectById1" parameterType="Long" resultType="com.ygy.model.Sysrole">
+    SELECT * from s1.sysRole WHERE id=#{id}
+  </select>
 </mapper>

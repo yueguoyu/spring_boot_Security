@@ -256,9 +256,8 @@
         where id = #{id,jdbcType=INTEGER}
     </update>
     <select id="findByUserName" parameterType="String" resultType="com.ygy.model.Sysuser">
-    SELECT name FROM s1.sysRole WHERE id=
-    (select Sys_Role_id from s1.sys_role_user  WHERE  Sys_User_id=
-    (select id FROM s1.sysUser
-     WHERE username=#{username}))
+
+    select * FROM s1.sysUser
+     WHERE username=#{username}
   </select>
 </mapper>

@@ -93,4 +93,5 @@ public interface SysroleMapper {
      * @mbggenerated Tue Dec 05 19:31:30 CST 2017
      */
     int updateByPrimaryKey(Sysrole record);
+    Sysrole selectById1(Long id);
 }

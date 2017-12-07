@@ -27,11 +27,11 @@
 
 
         <div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
-            <p class="bg-info" th:text="${msg}"></p>
+           <h3> ROLE_ADMIN  </h3>  <p class="bg-info" th:text="${msg.getAdminMsg()}"></p>
         </div>
 
         <div sec:authorize="hasRole('ROLE_USER')"> <!-- 用户类型为 ROLE_USER 显示 -->
-            <p class="bg-info">无更多信息显示</p>
+            <h3>ROLE_USER</h3> <p class="bg-info">无更多信息显示</p>
         </div>
 
         <form th:action="@{/logout}" method="post">

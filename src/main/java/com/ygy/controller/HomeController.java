@@ -1,6 +1,7 @@
 package com.ygy.controller;
 
 import com.ygy.dao.UserDao;
+import com.ygy.model.Message;
 import com.ygy.model.Sysuser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,8 +18,10 @@ public class HomeController {
     @Autowired
     UserDao dao;
     @RequestMapping("/")
-    public String index(Model model){
-        model.addAttribute("msg","测试！！！！");
+    public String index(@ModelAttribute(value = "Message") Message message,Model model){
+        message.setAdminMsg("管理员");
+        message.setUserMesg("用户");
+        model.addAttribute("msg",message);
         return "home";
     }
 //    @RequestMapping("/login")
